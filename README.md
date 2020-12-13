@@ -9,6 +9,7 @@ The 3 output files are:
 These three file contains the ooptimized trees with the TWR and MDR given in my response.
 
 The file pa2_pt3.py is the code used to generate these files. The code contains extensive documentation on each of its components. 
+The code was ran under Python 3.8. The packages used were sys and heapq
 
 The code can be executing by opening the file from IDLE and then running it. The code will print 9 lines, the format of the print is given below.
 random graph TWR
