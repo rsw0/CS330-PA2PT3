@@ -1,0 +1,24 @@
+---
+title: "Untitled"
+author: "rsw"
+date: "2020/12/13"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(kableExtra)
+Input <- c("Random Edges", "Donut Edges", "Zigzag Edges")
+Original_TWR <- c(3.574439, 3.580822, 1.973167)
+Original_MDR <- c(31.699, 11.996, 99.000)
+Improved_TWR <- c(1.053889, 1.056486, 1.005589)
+Improved_MDR <- c(1.044098, 1.037024, 1.000000)
+c_value <- c(0.3, 0.32, 0.25)
+Output <- tibble(Input, Original_TWR, Original_MDR, Improved_TWR, Improved_MDR, c_value)
+Output %>% kbl(caption = "Algorithm Output") %>% kable_classic(full_width = F, html_font = "Cambria")
+```
+
