@@ -20,5 +20,12 @@ Improved_MDR <- c(1.044098, 1.037024, 1.000000)
 c_value <- c(0.3, 0.32, 0.25)
 Output <- tibble(Input, Original_TWR, Original_MDR, Improved_TWR, Improved_MDR, c_value)
 Output %>% kbl(caption = "Algorithm Output") %>% kable_classic(full_width = F, html_font = "Cambria")
+
+Maximum_Node_Degree <- c(4, 4, 3)
+Average_Node_Degree <- c(1.998000, 1.997386, 1.999365)
+Maximum_Node_Depth <- c(71, 73, 112)
+Average_Node_Depth <- c(32.850000, 31.854902, 56.241029)
+Output1 <- tibble(Input, Maximum_Node_Degree, Average_Node_Degree, Maximum_Node_Depth, Average_Node_Depth)
+Output1 %>% kbl(caption = "Degree-Depth Output") %>% kable_classic(full_width = F, html_font = "Cambria")
 ```
 
