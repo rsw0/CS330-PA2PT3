@@ -5,7 +5,7 @@ outputrandom
 outputdonut
 outputzigzag
 
-These three files contain the optimized trees with the TWR and MDR given in my response. The code contains extensive documentation on each of its components. The code can be executed by opening the file from IDLE and then running it. The code will print 9 lines, the format of the print is given below.
+These three files contain the optimized trees with the TWR and MDR given in my response. The code contains extensive documentation on each of its components. The code can be executed by opening the file from IDLE and then running it. The code will print 21 lines, the format of the print is given below.
 
 random graph TWR
 random graph MDR
