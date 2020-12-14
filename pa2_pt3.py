@@ -56,11 +56,13 @@ def Run(input_file, output_file):
     best_MDR = float('inf')
     primstra_tree = None
     best_c = -1
+    best_degree = None
+    best_depth = None
     # the line below generates 100 evenly spaced c values on the interval [0,1]. distance and weight will be tested on
     # each one of them and the min(max(TWR, MDR)) among all trials will be recorded
     c = [0.0 + x*(1.0-0.0)/100 for x in range(100)]
     for myc in c:
-        temp_dist, temp_weight, temp_tree = primstra(N, m, s, undirected_adj_list, myc)
+        temp_dist, temp_weight, temp_degree, temp_depth, temp_tree = primstra(N, m, s, undirected_adj_list, myc)
         temp_TWR = temp_weight/MSTtotal_weight
         temp_MDR = -1
         for i in range(N):
@@ -72,9 +74,15 @@ def Run(input_file, output_file):
             best_MDR = temp_MDR
             primstra_tree = temp_tree
             best_c = myc
+            best_degree = temp_degree
+            best_depth = temp_depth
     print(best_TWR)
     print(best_MDR)
     print(best_c)
+    print(max(best_degree))
+    print(sum(best_degree)/len(best_degree))
+    print(max(best_depth))
+    print(sum(best_depth)/len(best_depth))
     writeOutput(output_file, N, primstra_tree)
 
 
@@ -200,7 +208,24 @@ def primstra(N, m, s, adj_list, c):
         optimal_tree_list[tree_elem[1]].append((tree_elem[2], tree_elem[0]))
         optimal_tree_list[tree_elem[2]].append((tree_elem[1], tree_elem[0]))
 
-    return best_dist, total_weight, optimal_tree_list
+    # compute the degree of each node
+    node_degree = [list() for x in range(N)]
+    for j1 in range(N):
+        node_degree[j1] = len(optimal_tree_list[j1])
+
+    # compute the depth of each node
+    node_depth = [list() for x in range(N)]
+    node_depth[s] = 0
+    for k1 in range(N):
+        if k1 != s:
+            temp_parent = parents[k1]
+            temp_depth = 1
+            while temp_parent != s:
+                temp_parent = parents[temp_parent]
+                temp_depth += 1
+            node_depth[k1] = temp_depth
+
+    return best_dist, total_weight, node_degree, node_depth, optimal_tree_list
 
 
 # my modified Dijkstra's algorithm from part 2
