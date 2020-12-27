@@ -1,11 +1,11 @@
-# CS330-PA2PT3
-This github repository contains code and output files for the optional component of CS330 PA2 Part 3. The code used to generate the output files is pa2_pt3.py. It was ran under Python version 3.8, and the packages used were sys and heapq. The 3 output files are:
+# Performance-Driven Global Routing
+This github repository contains the algorithm and output files for my performance-driven global routing tree optimization (balancing longest path distance and maximum path weight simutaneously). The algorithm used to generate the output files is contained in pa2_pt3.py. It was ran under Python version 3.8, and the packages used were sys and heapq. The 3 output files are:
 
 outputrandom
 outputdonut
 outputzigzag
 
-These three files contain the optimized trees with the TWR and MDR given in my response. The code contains extensive documentation on each of its components. The code can be executed by opening the file from IDLE and then running it. The code will print 21 lines, the format of the print is given below.
+These three files contain the optimized trees with the drastically improved Total Weight Ratio (TWR) with respect to a MST and Maximum Distance Ratio (MDR) with respect to a SPT. The code contains extensive documentation on each of its components. The code can be executed by opening the file from IDLE and then running it. The code will print 21 lines, the format of the print is given below.
 
 random graph TWR
 
